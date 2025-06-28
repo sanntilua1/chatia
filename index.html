@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Redireccionando...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Redirección automática según dispositivo
+    (function() {
+      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+      // Detecta si estás en local (file://)
+      var isLocal = location.protocol === 'file:';
+      var base = '';
+
+      if (isLocal) {
+        // Si abres desde file://, usa solo la carpeta actual
+        base = '';
+      } else {
+        // Si es web, usa la carpeta actual
+        base = location.pathname.replace(/\/[^\/]*$/, '/');
+      }
+
+      if (isMobile) {
+        window.location.href = base + 'celular/';
+      } else {
+        window.location.href = base + 'pc/';
+      }
+    })();
+  </script>
+  <style>
+    body { background: #23232f; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; }
+  </style>
+</head>
+<body>
+  <h2>Redireccionando a la mejor experiencia para tu dispositivo...</h2>
+</body>
+</html>

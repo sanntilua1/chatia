@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT UI Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <button class="new-chat-btn" id="new-chat-btn" data-tooltip="Nuevo chat">
+                    <svg width="20" height="20"><circle cx="10" cy="10" r="9" fill="#19c37d"/></svg>
+                    Nuevo chat
+                </button>
+            </div>
+            <div class="sidebar-section">
+                <h2>Chats recientes</h2>
+                <ul class="chat-list" id="chat-list">
+                    <li class="chat-item active">
+                        <span class="sidebar-avatar">
+                            <svg width="20" height="20"><circle cx="10" cy="10" r="9" fill="#19c37d"/></svg>
+                        </span>
+                        Bienvenido
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <svg width="28" height="28"><rect x="4" y="4" width="20" height="20" rx="6" fill="#ececf1"/></svg>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Usuario</span>
+                        <span class="user-email">usuario@gmail.com</span>
+                    </div>
+                    <button class="logout-btn" title="Cerrar sesión">⎋</button>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Chat Area -->
+        <div class="main-content">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-btn" id="menu-btn" title="Menú">☰</button>
+                    <span class="brand">ChatGPT</span>
+                </div>
+                <div class="topbar-right">
+                    <button class="upgrade-btn">Mejorar</button>
+                    <button class="theme-btn" id="theme-btn" data-theme="dark" title="Tema">🌙</button>
+                </div>
+            </header>
+            <div class="chat-container" id="chat-container">
+                <div class="chat-header">
+                    <h1>ChatGPT</h1>
+                    <span class="chat-model">Llama 3 70B</span>
+                    <span class="status-dot" title="Online"></span>
+                </div>
+                <div class="chat-history" id="chat-history"></div>
+                <form class="chat-input-area" onsubmit="return false;">
+                    <div class="input-toolbar">
+                        <button class="attach-btn" type="button" title="Adjuntar archivo" aria-label="Adjuntar archivo">
+                            <!-- Icono de clip SVG estilo ChatGPT -->
+                            <svg viewBox="0 0 20 20"><path d="M7.5 6.5l5 5a2.121 2.121 0 01-3 3l-5-5a4.243 4.243 0 016-6l7 7a6.364 6.364 0 01-9 9l-7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <button class="mic-btn" type="button" title="Hablar" aria-label="Hablar">
+                            <!-- Icono de micrófono SVG estilo ChatGPT -->
+                            <svg viewBox="0 0 20 20"><rect x="7" y="4" width="6" height="10" rx="3" fill="currentColor"/><path d="M10 16v2m-4-2a4 4 0 008 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+                    <div class="chat-input">
+                        <textarea id="user-input" rows="1" placeholder="Enviar un mensaje..."></textarea>
+                        <button id="send-button" type="button" aria-label="Enviar">
+                            <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="2,21 21,11 2,1 2,8 15,11 2,14" fill="#19c37d"/></svg>
+                        </button>
+                    </div>
+                </form>
+                <footer class="chat-footer">
+                    <span class="info-icon">ℹ️</span>
+                    ChatGPT puede cometer errores. Verifique información importante.
+                </footer>
+            </div>
+        </div>
+    </div>
+    <div id="modal-root"></div>
+    <div id="tooltip-root"></div>
+    <script src="script.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
