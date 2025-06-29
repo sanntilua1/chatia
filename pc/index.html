@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT UI Chatbot</title>
+    <title>ChatGPT</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <button class="new-chat-btn" id="new-chat-btn" data-tooltip="Nuevo chat">
-                    <svg width="20" height="20"><circle cx="10" cy="10" r="9" fill="#19c37d"/></svg>
+                    <svg width="20" height="20"><circle cx="10" cy="10" r="9" fill="#2e313a"/></svg>
                     Nuevo chat
                 </button>
             </div>
@@ -22,7 +22,7 @@
                 <ul class="chat-list" id="chat-list">
                     <li class="chat-item active">
                         <span class="sidebar-avatar">
-                            <svg width="20" height="20"><circle cx="10" cy="10" r="9" fill="#19c37d"/></svg>
+                            <svg width="20" height="20"><circle cx="10" cy="10" r="9" fill="#2e313a"/></svg>
                         </span>
                         Bienvenido
                     </li>
@@ -31,7 +31,7 @@
             <div class="sidebar-footer">
                 <div class="user-profile">
                     <div class="user-avatar">
-                        <svg width="28" height="28"><rect x="4" y="4" width="20" height="20" rx="6" fill="#ececf1"/></svg>
+                        <svg width="28" height="28"><rect x="4" y="4" width="20" height="20" rx="6" fill="#ffffff"/></svg>
                     </div>
                     <div class="user-info">
                         <span class="user-name">Usuario</span>
@@ -49,15 +49,15 @@
                     <span class="brand">ChatGPT</span>
                 </div>
                 <div class="topbar-right">
-                    <button class="upgrade-btn">Mejorar</button>
-                    <button class="theme-btn" id="theme-btn" data-theme="dark" title="Tema">🌙</button>
+                    <button class="upgrade-btn">ChatGPT</button>
+                    <button class="theme-btn" id="theme-btn" data-theme="" title="Tema">🌙</button>
                 </div>
             </header>
             <div class="chat-container" id="chat-container">
                 <div class="chat-header">
                     <h1>ChatGPT</h1>
-                    <span class="chat-model">Llama 3 70B</span>
-                    <span class="status-dot" title="Online"></span>
+                    <span class="status-dot" id="status-dot" title="Online"></span>
+                    <span class="status-text" id="status-text">Online</span>
                 </div>
                 <div class="chat-history" id="chat-history"></div>
                 <form class="chat-input-area" onsubmit="return false;">
@@ -74,12 +74,12 @@
                     <div class="chat-input">
                         <textarea id="user-input" rows="1" placeholder="Enviar un mensaje..."></textarea>
                         <button id="send-button" type="button" aria-label="Enviar">
-                            <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="2,21 21,11 2,1 2,8 15,11 2,14" fill="#19c37d"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="2,21 21,11 2,1 2,8 15,11 2,14" fill="#323541"/></svg>
                         </button>
                     </div>
                 </form>
                 <footer class="chat-footer">
-                    <span class="info-icon">ℹ️</span>
+                    <span class="info-icon"></span>
                     ChatGPT puede cometer errores. Verifique información importante.
                 </footer>
             </div>
