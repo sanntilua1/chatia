@@ -31,11 +31,11 @@ if (themeBtn) {
     themeBtn.addEventListener('click', () => {
         if (themeBtn.textContent === "🌙") {
             themeBtn.textContent = "☀️";
-            themeBtn.setAttribute('data-theme', 'light');
+            themeBtn.setAttribute('data-theme', '');
             document.body.classList.add('light-theme');
         } else {
             themeBtn.textContent = "🌙";
-            themeBtn.setAttribute('data-theme', 'dark');
+            themeBtn.setAttribute('data-theme', '');
             document.body.classList.remove('light-theme');
         }
     });
@@ -87,7 +87,7 @@ function appendMessage(sender, message, typing = false) {
     const avatar = document.createElement('div');
     avatar.className = 'avatar';
     avatar.innerHTML = sender === 'bot'
-        ? `<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="#19c37d" /></svg>`
+        ? `<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="#ffff" /></svg>`
         : `<svg width="28" height="28" viewBox="0 0 28 28"><rect x="4" y="4" width="20" height="20" rx="6" fill="#ececf1" /></svg>`;
 
     const bubble = document.createElement('div');
@@ -152,7 +152,7 @@ function simulateTyping(bubble, userMessage) {
             scrollChatToBottom();
             if (i < response.length) {
                 i++;
-                setTimeout(type, 12); // Velocidad de escritura
+                setTimeout(type, 4); // Velocidad de escritura
             } else {
                 bubble.innerHTML = renderMarkdown(response);
                 conversation.push({ role: "assistant", content: response });
@@ -442,3 +442,17 @@ function updateAriaPressed() { /* ... */ }
 // ...simula hasta 1000 funciones utilitarias si lo deseas...
 
 // === FIN DE UTILIDADES Y PLACEHOLDERS ===
+function renderBotMessage(text) {
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble bot';
+    bubble.textContent = text;
+    // Agrega el botón copiar
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-btn';
+    copyBtn.innerHTML = '📋';
+    copyBtn.onclick = () => navigator.clipboard.writeText(text);
+    bubble.appendChild(copyBtn);
+
+    // Agrega la burbuja al chat
+    document.querySelector('.chat-history').appendChild(bubble);
+}
